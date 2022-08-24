@@ -1,8 +1,29 @@
 .App {
   text-align: center;
 }
-.linksNav{
-  font-size: 1rem;
-  line-height: 23px
+.positionNav{
+  /* font-size: 1rem;
+  line-height: 23px */
+display: flex;
+  justify-content: space-around;
+}
+.logoFooter{
+  background-image: url("../Img/PwC-logo-white.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 48px;
+  margin-top: 5px;
+  float: left;
+  width: 72px;
+  height: 55px;
+}
+.footerslilm{
+  width: 62px;
+    height: 47px;
 }
 
+@media (max-width: 991px){
+  .positionNav{
+    justify-content: start;
+    }
+}

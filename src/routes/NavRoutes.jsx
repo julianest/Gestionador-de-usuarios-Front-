@@ -9,6 +9,8 @@ import NavbarP from '../components/NavbarP';
 
 // import useInitialState from '../hooks/useInitialState';
 import { GetUsuariosService } from '../services/usuarioApiServices';
+import FooterP from '../components/FooterP';
+
 
 
 export const UserContext = createContext();
@@ -45,6 +47,7 @@ const NavRoutes = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/*" element={<Navigate to="/" />} />
           </Routes>
+          <FooterP/>
         </BrowserRouter>
       </UserContext.Provider>
     </>

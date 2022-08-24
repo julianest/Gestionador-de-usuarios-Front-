@@ -1,5 +1,18 @@
 import Constants from "../helpers/constants";
 
+export const GetUsuariosReports = async () => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  const data = await fetch(`${Constants.urlReports}`, options);
+  return data.json();
+  
+  //const response = await fetch(`${process.env.REACT_APP_API_URL}usuarios?${query}`, options);
+};
+
 export const GetUsuariosService = async (search, offset) => {
   const query = `?search=${search ? search : ''}&offset=${offset ? offset : 0}`;
   const options = {
