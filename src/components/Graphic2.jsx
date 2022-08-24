@@ -3,12 +3,45 @@ import { Container } from "react-bootstrap";
 //Componentes Chart.js-2 react
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { GetUsuariosReports } from '../services/usuarioApiServices';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const Graphic2 = () => {
+const Graphic2 = ({data}) => {
+  // console.log(data)
+  const [dataRender, setDataRender] = useState([]);
+  const scores = [];
+  const labels = [];
 
-  const scores = [6, 3, 8, 9, 2, 1, 6]; //Fechas de nacimiento
-  const labels = [100, 200, 300, 400, 500]; //Nombres
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await GetUsuariosReports();
+      setDataRender(data);
+    }
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  
+    for (const iterator of dataRender) {
+      // console.log(iterator) 
+      scores.push(iterator.nombre);          
+  }
+  for (const iterator of dataRender) {
+    // console.log(iterator) 
+    labels.push(iterator.fnacimiento);          
+}
+
+
+console.log(scores)
+
+
+
+
+  // const scores = [6, 3, 8, 9, 2, 1, 6]; //Fechas de nacimiento
+  
+  // const labels = [100, 200, 300, 400, 500]; //Nombres
 
   const options = {
     responsive: true,
@@ -32,7 +65,8 @@ const Graphic2 = () => {
   }
 
 
-  const data = useMemo(function () {
+
+  const datas = useMemo(function () {
     return {
       datasets: [
         {
@@ -42,13 +76,15 @@ const Graphic2 = () => {
         },
       ],
       labels
+
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <Container>
-        <Bar data={data} options={options} />
+        <Bar data={datas} options={options} />
       </Container>
     </>
   )
