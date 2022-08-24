@@ -8,40 +8,52 @@ import { useState } from 'react';
 import { GetUsuariosReports } from '../services/usuarioApiServices';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const Graphic2 = ({data}) => {
+const Graphic2 = ({ data }) => {
   // console.log(data)
   const [dataRender, setDataRender] = useState([]);
   const scores = [];
   const labels = [];
+  const [renderChart, setRenderChart] = useState()
+
+  // let chartReference = {};
+
+  async function getAll() {
+    const data = await GetUsuariosReports();
+    setDataRender(data);
+    recorrerDatos();
+  }
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await GetUsuariosReports();
-      setDataRender(data);
-    }
-    fetchData();
+    getAll()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  
+
+  function recorrerDatos() {
     for (const iterator of dataRender) {
-      // console.log(iterator) 
-      scores.push(iterator.nombre);          
+      let dateInputFormatted = new Date(iterator.fnacimiento).toISOString().split('T')[0];
+      scores.push(dateInputFormatted);
+      labels.push(iterator.nombre);
+    }
+    setRenderChart({
+      datasets: [
+        {
+          label: "Fechas de Nacimiento",
+          data: scores,
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+      ],
+      labels
+    })
+    console.log(scores)
+    console.log(labels)
   }
-  for (const iterator of dataRender) {
-    // console.log(iterator) 
-    labels.push(iterator.fnacimiento);          
-}
 
+  // console.log(scores)
+  // console.log(labels)
 
-console.log(scores)
-
-
-
-
-  // const scores = [6, 3, 8, 9, 2, 1, 6]; //Fechas de nacimiento
-  
-  // const labels = [100, 200, 300, 400, 500]; //Nombres
+  // const scores = [6, 3, 8, 9, 2, 1, 6]; //Fechas de nacimiento eje y
+  // const labels = [100, 200, 300, 400, 500]; //Nombres eje x
 
   const options = {
     responsive: true,
@@ -65,26 +77,12 @@ console.log(scores)
   }
 
 
-
-  const datas = useMemo(function () {
-    return {
-      datasets: [
-        {
-          label: "Fechas de Nacimiento",
-          data: scores,
-          backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        },
-      ],
-      labels
-
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
       <Container>
-        <Bar data={datas} options={options} />
+        <Bar data={renderChart} options={options}
+        // ref = {(reference) => this.reference = reference} 
+        />
       </Container>
     </>
   )

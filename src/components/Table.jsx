@@ -121,11 +121,6 @@ function Table(props) {
           <button className="page-link" onClick={() => pagination('next')}>Siguiente</button>
         </li>
       </ul>
-
-
-
-
-      
   </>
   )
 }
