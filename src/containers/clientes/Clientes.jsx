@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SubNav from '../../components/SubNav';
 import Table from '../../components/Table';
 import { GetUsuariosService } from '../../services/usuarioApiServices';
-import {ListGroup, Card, Button} from 'react-bootstrap';
+import { ListGroup, Card, Button, Container } from 'react-bootstrap';
 import buscarIcon from "../../Img/buscar.png";
 import "./clientes.css"
 
@@ -34,21 +34,22 @@ const Clientes = () => {
   return (
     <>
       <SubNav title={"Clientes"} />
-      
 
-      <Card style={{ width: '18rem' }}>
-      <Card.Header>Buscar</Card.Header>
-      <ListGroup variant="flush">
-        <ListGroup.Item><span><input type="search" onChange={(e) => handleChange(e)} />
-        <Button variant="info" className="buttons"><img src={buscarIcon} alt="buscar" className='icons'/></Button></span></ListGroup.Item>
+    <Container className="cont-buscar">
+      <Card style={{ width: '30rem' }}>
+        <Card.Header>Buscar</Card.Header>
+        <ListGroup variant="flush">
+          <ListGroup.Item className="cont-inpu-button-buscar">
+            <input type="search" onChange={(e) => handleChange(e)} id= "inputBuscar"/>
+            <Button variant="outline-primary" className="buttons" size="sm"><img src={buscarIcon} alt="buscar" className='icons' /></Button>
+          </ListGroup.Item>
+        </ListGroup>
+      </Card>
+    </Container>
 
-      </ListGroup>
-    </Card>
-
-
-
-      <Table data={dataRender} refreshTable={(e) => getAll(null, e)} />
-
+      <Container>
+        <Table data={dataRender} refreshTable={(e) => getAll(null, e)} />
+      </Container>
       <div className='fondo1' style={{ backgroundColor: "var(--c2)" }}></div>
     </>
   )

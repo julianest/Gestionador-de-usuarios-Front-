@@ -1,15 +1,39 @@
-.buttons{
+.buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
-  width: 40px;
+
 }
-.icons{
+
+.icons {
   height: 20px;
 }
 
-/* ---------FormP ----------------*/
+/* ----------Table----------------*/
 
+.tdBtns {
+  display: flex;
+  justify-content: center;
+}
 
-/* -------------------------------*/
+/* ------------Clientes-----------*/
+.cont-buscar{
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: center;
+}
+.cont-inpu-button-buscar {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  padding: 3%;
+}
+#inputBuscar{
+  width: 80%;
+}
+#inputBuscar:focus {
+  box-shadow: 0 0 3px #d93954;
+  outline: none;
+}

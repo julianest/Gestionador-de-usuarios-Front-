@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ValidateFormHelper } from '../helpers/ValidateForm';
 import { CreateUsuariosService} from '../services/usuarioApiServices';
 import '../containers/home/home.css';
+import swal from 'sweetalert'
 
 function FormP() {
   // eslint-disable-next-line no-unused-vars
@@ -16,10 +17,11 @@ function FormP() {
 
   async function create() {
     if (!ValidateFormHelper(modelo)) {
-      alert("Llene el formulario");
+      swal("Debe diligenciar todo el formulario");
       return;
     }
     await CreateUsuariosService(modelo);
+    swal("Registro Exitoso!")
   }
 
   function handleSubmit(e) {
@@ -37,7 +39,7 @@ function FormP() {
           <div className="row">
             <div className="col">
               <label htmlFor="nombre" className="form-label">Nombre</label>
-              <input type="text" placeholder="Nombre" name="nombre"
+              <input type="text" name="nombre"
                 id="nombre"
                 defaultValue={modelo.nombre}
                 onChange={(e) => modelo.nombre = e.target.value}
@@ -46,7 +48,7 @@ function FormP() {
 
             <div className="col">
               <label htmlFor="telefono" className="form-label">Telefono</label>
-              <input type="tel" placeholder="Telefono" name="telefono"
+              <input type="tel" name="telefono"
                 id="telefono"
                 defaultValue={modelo.telefono}
                 onChange={(e) => modelo.telefono = e.target.value}
@@ -57,7 +59,7 @@ function FormP() {
           <div className="row">
             <div className="col">
               <label htmlFor="correo" className="form-label">Correo</label>
-              <input type="email" placeholder="correo" name="correo"
+              <input type="email" name="correo"
                 id="correo"
                 defaultValue={modelo.correo}
                 onChange={(e) => modelo.correo = e.target.value}

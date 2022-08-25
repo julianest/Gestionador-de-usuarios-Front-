@@ -91,7 +91,7 @@ function Chart2() {
           <CardCount infoCount={dataChart.labels.length} />
         </Container>
         <Container >
-          <Bar options={options} data={dataChart} />
+          <Bar options={options} data={dataChart} style={{marginBottom: "3%"}} />
         </Container>
       </Container>
     </>
