@@ -1,3 +1,12 @@
+:root {
+  --pwc-fontFamily: "PwC Helvetica Neue", Arial, Sans-Serif;
+  --pwc-fontFamily2: "PwC ITC Charter", Georgia, Serif;
+  --subNav-bg-color: #f1f3f9;
+  --c1: #EB8C00;
+  --c2:#e0301e;
+  --c3:#FFB600;
+  --subNav-bg-color: #f1f3f9;
+}
 body {
   margin: 0;
   font-family: Verdana, sans-serif;

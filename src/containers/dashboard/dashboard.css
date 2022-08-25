@@ -1,0 +1,12 @@
+
+.cont_dahsboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+}
+

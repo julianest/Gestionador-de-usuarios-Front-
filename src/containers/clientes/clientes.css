@@ -1,0 +1,15 @@
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 40px;
+}
+.icons{
+  height: 20px;
+}
+
+/* ---------FormP ----------------*/
+
+
+/* -------------------------------*/

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ValidateFormHelper } from '../helpers/ValidateForm';
 import { CreateUsuariosService} from '../services/usuarioApiServices';
-
-// import "../App.css";
+import '../containers/home/home.css';
 
 function FormP() {
   // eslint-disable-next-line no-unused-vars
@@ -29,9 +28,9 @@ function FormP() {
   }
 
   return (
-    <div className="card colorTable">
+    <div className="card mb-4">
       <div className="card-header">
-        Formulario
+        <h5>Registrate</h5> 
       </div>
       <div className="card-body">
         <form onSubmit={handleSubmit}>

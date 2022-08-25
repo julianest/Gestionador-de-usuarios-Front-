@@ -1,0 +1,78 @@
+
+.cont-registro{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+
+/* ---------FormP ----------------*/
+/* .formP{
+width: 100%;
+} */
+
+/* -------------------------------*/
+
+
+
+
+/* ---------CarouselP ------------*/
+
+.imgHome{
+  height: 285px;
+  width: 100%;
+  background-size:contain; 
+background-size:cover;
+}
+/* -------------------------------*/
+
+
+
+/* ---------FormP & CarouselP ------------*/
+.cont-form-carou{
+  width: 48%;
+}
+#home-cont1{
+  order: 1;
+}
+#home-cont2{
+  order: 2;
+}
+
+@media (max-width: 952px){
+  .cont-form-carou {
+    width: 70%;
+    margin-bottom: 3%;
+  }
+  #home-cont1{
+    order: 2;
+    
+  }
+  #home-cont2{
+    order: 1;
+    margin-bottom: 2%;
+  }
+}
+@media (max-width: 665px){
+  .cont-form-carou {
+    width: 90%;
+    margin-top: 3%;
+  }
+}
+
+@media (max-width: 570px){
+  .cont-form-carou {
+    width: 80%;
+    margin-top: 3%;
+  }
+}
+@media (max-width: 400px){
+  .cont-form-carou {
+    width:100%;
+    margin-top: 3%;
+  }
+}
+/* -------------------------------*/

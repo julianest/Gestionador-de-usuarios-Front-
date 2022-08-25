@@ -4,6 +4,7 @@ import { DeleteUsuariosService, GetUsuarioByIdService, UpdateUsuariosService } f
 import editarIcon from "../Img/edit-3.svg"
 import guardarIcon from "../Img/save.svg"
 import eliminarIcon from "../Img/trash-2.svg"
+import { Button } from 'react-bootstrap';
 // import "../App.css";
 
 function Table(props) {
@@ -99,14 +100,14 @@ function Table(props) {
               onChange={(e) => modelo.fnacimiento = e.target.value}
               className="form-control" required /> : item.fnacimiento.split("T")[0]}</td>
             <td>
-              <button onClick={() => indexEdit === index ? update() : getOne(item.id, index)} className="icon-button">{
-                indexEdit === index ? <img src={guardarIcon} alt="editar" /> : <img src={editarIcon} alt="editar" />
+              <Button variant="warning" className="buttons" onClick={() => indexEdit === index ? update() : getOne(item.id, index)} >{
+                indexEdit === index ? <img src={guardarIcon} alt="guardar" /> : <img src={editarIcon} alt="editar" />
               }
 
-              </button>
-              <button onClick={() => remove(item.id)} className="icon-button">
+              </Button>
+              <Button variant="danger" className="buttons" onClick={() => remove(item.id)} >
                 <img src={eliminarIcon} alt="borrar" />
-              </button>
+              </Button>
             </td>
           </tr>
         })}
